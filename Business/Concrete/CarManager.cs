@@ -1,4 +1,6 @@
-﻿using Entities;
+﻿using Business.Abstract;
+using DataAccess.Abstract;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,35 +9,38 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class CarManager
+    public class CarManager : ICarService
 
     {
-
-
-
-        public void GetById(Car car)
+        ICarDal _carDal;
+        public CarManager(ICarDal carDal)
         {
-
-
+            _carDal = carDal;
         }
 
-        public void GetAll(Car car)
-        {
-
-
-        }
         public void Add(Car car)
         {
-
+            throw new NotImplementedException();
         }
-        public void Update(Car car)
-        {
 
-        }
         public void Delete(Car car)
         {
-
+            throw new NotImplementedException();
         }
 
+        public List<Car> GetAll(Car car)
+        {
+            return new List<Car>(_carDal.GetAll());  
+        }
+
+        public List<Car> GetById(Car car)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(Car car)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,16 +10,16 @@ namespace Business.Abstract
     public interface ICarService
     {
 
-        public void GetById();
+        public List<Car> GetById(Car car);
 
 
-        public void GetAll();
+        public List<Car> GetAll(Car car);
 
-        public void Add();
+        public void Add(Car car);
 
-        public void Update();
+        public void Update(Car car);
 
-        public void Delete();
+        public void Delete(Car car);
        
 
     }

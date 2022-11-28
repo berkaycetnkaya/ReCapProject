@@ -1,10 +1,14 @@
-﻿namespace ConsoleUIL
+﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
+
+namespace ConsoleUIL
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+
+            CarManager carManager = new CarManager(new EfCarDal());
         }
     }
 }
