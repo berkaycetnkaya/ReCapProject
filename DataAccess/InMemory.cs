@@ -11,7 +11,7 @@ using System.Linq.Expressions;
 
 namespace DataAccess
 {
-    public class InMemory : ICarDal
+    public class InMemory 
     {
         List<Car> _cars;
         public InMemory()

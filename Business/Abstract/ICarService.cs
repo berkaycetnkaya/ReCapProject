@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface CarService
+    public interface ICarService
     {
 
         public void GetById();
