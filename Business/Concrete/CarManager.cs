@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,27 +21,32 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Add(car);   
         }
 
         public void Delete(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Delete(car);   
+            
         }
 
-        public List<Car> GetAll(Car car)
+        public List<CarDetailDto> GetAllDto()
         {
-            return new List<Car>(_carDal.GetAll());  
+            return _carDal.GetCarDetails();  
         }
 
-        public List<Car> GetById(Car car)
+        public Car GetById(int id)
         {
-            throw new NotImplementedException();
+            //return _carDal.Get(p => p.Id == id);
+           
+            return _carDal.Get((p => p.Id == id));
+        
+                
         }
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Update(car);    
         }
     }
 }

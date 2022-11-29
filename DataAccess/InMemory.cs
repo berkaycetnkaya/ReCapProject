@@ -16,8 +16,8 @@ namespace DataAccess
         List<Car> _cars;
         public InMemory()
         {
-            _cars = new List<Car> { new Car { Id = "1", BrandId = "1", ColorId = "1", DailyPrice = 200, Description = "BMW ", ModelYear = 2022 },
-            new Car    { Id = "2", BrandId = "2", ColorId = "2", DailyPrice = 400, Description = "Mercedes ", ModelYear = 2022 } };
+            _cars = new List<Car> { new Car { Id = 1, BrandId = 1, ColorId = 1, DailyPrice = 200, Description = "BMW ", ModelYear = 2022 },
+            new Car    { Id = 2, BrandId = 2, ColorId = 2, DailyPrice = 400, Description = "Mercedes ", ModelYear = 2022 } };
         }
 
         public void Add(Car car)

@@ -10,6 +10,6 @@ namespace Entities
     public class Color: IEntity
     {
         public string Name { get; set; }
-        public string Id { get; set; }
+        public int Id { get; set; }
     }
 }
