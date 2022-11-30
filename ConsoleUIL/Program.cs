@@ -9,7 +9,14 @@ namespace ConsoleUIL
         {
 
             CarManager carManager = new CarManager(new EfCarDal());
-            Console.WriteLine(carManager.GetById(1).Description);
+            BrandManager brandManager = new BrandManager(new EfBrandDal());
+
+            foreach (var brand in brandManager.GetAll())
+            {
+                Console.WriteLine(brand.Name + brand.Id);
+            }
+            
+            
            
             //foreach (var car in carManager.GetAllDto())
             //{

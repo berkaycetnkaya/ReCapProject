@@ -21,6 +21,11 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
+           // araba ismi mınımum 2 karekter olacak
+           //arabada dailyprice 0 dan büyük olacak
+            
+            
+            
             _carDal.Add(car);   
         }
 

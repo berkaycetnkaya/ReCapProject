@@ -51,6 +51,9 @@ namespace Core.DataAccess.EntityFramework
 
         public void Update(TEntity entity)
         {
+
+            // entityframework olmasa
+            // Product producttoupdate = _products
             using (TContext context = new TContext())
             {
                 var updatedEntity = context.Entry(entity);
