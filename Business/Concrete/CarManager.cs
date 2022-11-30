@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities;
 using Entities.DTOs;
@@ -16,42 +18,39 @@ namespace Business.Concrete
         ICarDal _carDal;
         public CarManager(ICarDal carDal)
         {
-            _carDal = carDal;
+            _carDal=carDal;
         }
 
-        public void Add(Car car)
+        public IResult Add(Car car)
         {
-           // araba ismi mınımum 2 karekter olacak
-           //arabada dailyprice 0 dan büyük olacak
-            
-            
-            
             _carDal.Add(car);   
+            return new SuccessResult(Messages.CarAdded); 
         }
 
-        public void Delete(Car car)
+        public IResult Delete(Car car)
         {
-            _carDal.Delete(car);   
-            
+            _carDal.Delete(car);
+            return new SuccessResult(Messages.CarDeleted);
         }
 
-        public List<CarDetailDto> GetAllDto()
+        public IDataResult<List<Car>> GetAll()
         {
-            return _carDal.GetCarDetails();  
+            return new  SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarListed);
         }
 
-        public Car GetById(int id)
+        public IDataResult<List<CarDetailDto>> GetAllDto()
         {
-            //return _carDal.Get(p => p.Id == id);
-           
-            return _carDal.Get((p => p.Id == id));
-        
-                
+            throw new NotImplementedException();
         }
 
-        public void Update(Car car)
+        public IDataResult<Car> GetById(int id)
         {
-            _carDal.Update(car);    
+            throw new NotImplementedException();
+        }
+
+        public IResult Update(Car car)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -10,18 +10,40 @@ namespace ConsoleUIL
 
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
+            // MarkalarıGetir(brandManager);
 
-            foreach (var brand in brandManager.GetAll())
+            var result = carManager.GetAll();
+            if (result.Success)
             {
-                Console.WriteLine(brand.Name + brand.Id);
+                foreach(var car in result.Data)
+                {
+                    Console.WriteLine(car.Description + "/" + car.ModelYear +"/"+result.Message);
+                    
+                }
+
             }
-            
-            
-           
+            else
+            {
+                Console.WriteLine(result.Message);  
+            }
+
+
             //foreach (var car in carManager.GetAllDto())
             //{
             //    Console.WriteLine(car.Id +" "+ car.ModelYear +" "+ car.DailyPrice +" "+ car.BrandName +" "+ car.ColorName + car.Description);
             //}
+            
+
+
+
+        }
+
+        private static void MarkalarıGetir(BrandManager brandManager)
+        {
+            foreach (var brand in brandManager.GetAll())
+            {
+                Console.WriteLine(brand.Name + brand.Id);
+            }
         }
     }
 }
