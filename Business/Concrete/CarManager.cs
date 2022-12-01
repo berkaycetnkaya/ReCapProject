@@ -40,17 +40,18 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetAllDto()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),Messages.CarDetailListed);
         }
 
         public IDataResult<Car> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == id));
         }
 
         public IResult Update(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Update(car);    
+            return new SuccessResult(Messages.CarUpdated);
         }
     }
 }
