@@ -12,7 +12,7 @@ namespace ConsoleUIL
 
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
-            ColorManager colorManager = new ColorManager(new EfColorDal(),new GenericMessages<Color>());
+            ColorManager colorManager = new ColorManager(new EfColorDal());
             // MarkalarıGetir(brandManager);
             Color color = new Color { Name= "Turkuaz"};
             
