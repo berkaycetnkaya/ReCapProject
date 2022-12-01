@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
+using Business.Constants.Messages;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities;
 using System;
 using System.Collections.Generic;
@@ -10,30 +12,42 @@ using System.Threading.Tasks;
 namespace Business.Concrete
 {
     public class UserManager : IUserService
+
+
     {
+
+        IUserDal _userDal;
+        public UserManager(IUserDal userDal)
+        {
+            _userDal = userDal;
+        }
+    
         public IResult Add(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Add(user);
+            return new SuccessResult(UserMessages.UserAdded);
         }
 
         public IResult Delete(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Delete(user);
+            return new SuccessResult(UserMessages.UserDeleted);
         }
 
         public IDataResult<List<User>> GetAll()
         {
-            throw new NotImplementedException();
+           return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
 
         public IDataResult<User> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<User>(_userDal.Get(p => p.Id == id));
         }
 
         public IResult Update(User user)
         {
-            throw new NotImplementedException();
+            _userDal.Update(user);
+            return new SuccessResult(UserMessages.UserUpdated);
         }
     }
 }

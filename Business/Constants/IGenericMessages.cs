@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace Business.Constants
 {
     public interface IGenericMessages<T> where T : class,IEntity,new()  
     {
-        string Added(T entity);
-        string Deleted(T entity);
+        public string Added(T entity);
+        public string Deleted(T entity);
 
-        string Updated(T entity );
-        string Listed(T entity);
+       public string Updated(T entity );
+       public string Listed(T entity);
 
     }
 }

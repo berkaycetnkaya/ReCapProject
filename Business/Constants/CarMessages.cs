@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Business.Constants
 {
-    public static class Messages
+    public static class CarMessages
     {
         public static string CarAdded = "Araç eklendi";
         public static string CarNameInvalid = "Araç ismi 2 karakterden küçük olamaz";
@@ -14,5 +14,6 @@ namespace Business.Constants
         public static string CarUpdated = "Araç Güncellendi";
         public static string CarListed="Araçlar Listelendi";
         public static string CarDetailListed = "Araç detayları listelendi";
+       public static string CarListedById="Aradığınız ürün listelendi";
     }
 }

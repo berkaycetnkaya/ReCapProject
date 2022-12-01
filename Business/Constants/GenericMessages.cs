@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,15 @@ namespace Business.Constants
     public class GenericMessages<T> : IGenericMessages<T>
         where T : class, IEntity, new() 
     {
+        Color _color;
+        public GenericMessages(Color color)
+        {
+            _color = color;
+        }
+
         public string Added(T entity)
         {
-            string message = entity + "eklendi";
-            return message;
-            
+            throw new NotImplementedException();
         }
 
         public string Deleted(T entity)

@@ -18,7 +18,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (TablesContext context = new TablesContext())
             {
-                var result = from p in context.Users
+                var resultt = from p in context.Users
                              join c in context.Customers
                              on p.Id equals c.Id
 
@@ -27,12 +27,12 @@ namespace DataAccess.Concrete.EntityFramework
                                  Id = p.Id,
                                  FirstName = p.FirstName,
                                  LastName = p.LastName,
-                                 CompanyName=c.CompanyName,
+                                 CompanyName = c.CompanyName,
                                  
 
                              };
 
-                return result.ToList();
+                return resultt.ToList();
 
 
 

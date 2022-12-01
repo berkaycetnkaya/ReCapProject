@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
+using Business.Constants.Messages;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities;
 using Entities.DTOs;
 using System;
@@ -12,34 +14,43 @@ namespace Business.Concrete
 {
     public class CustomerManager : ICustomerService
     {
+        ICustomerDal _customerDal;
+        public CustomerManager(ICustomerDal customerDal)
+        {
+           _customerDal = customerDal;  
+        }
+    
         public IResult Add(Customer customer)
         {
-            throw new NotImplementedException();
+           _customerDal.Add(customer);
+            return new SuccessResult(CustomerMessages.CustomerAdded);
         }
 
         public IResult Delete(Customer customer)
         {
-            throw new NotImplementedException();
+            _customerDal.Delete(customer);
+            return new SuccessResult(CustomerMessages.CustomerDeleted);
         }
 
         public IDataResult<List<Customer>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Customer>>(_customerDal.GetAll(),CustomerMessages.CustomerListed);
         }
 
         public IDataResult<Customer> GetById(int id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Customer>(_customerDal.Get(p => p.Id == id),CustomerMessages.CustomerListedById);
         }
 
-        public IDataResult<List<CustomerDetailDto>> GetCustomerDetail()
+        public IDataResult<List<CustomerDetailDto>> GetAllDetail()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<CustomerDetailDto>>();
         }
 
         public IResult Update(Customer customer)
         {
-            throw new NotImplementedException();
+            _customerDal.Add(customer);
+            return new SuccessResult(CustomerMessages.CustomerUpdated);
         }
     }
 }
