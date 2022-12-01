@@ -8,7 +8,7 @@ namespace Business.Constants
 {
     public static class CarMessages
     {
-        public static string CarAdded = "Araç eklendi";
+        public static string CarAdded = "Arac eklendi";
         public static string CarNameInvalid = "Araç ismi 2 karakterden küçük olamaz";
         public static string CarDeleted = "Araç Silindi";
         public static string CarUpdated = "Araç Güncellendi";

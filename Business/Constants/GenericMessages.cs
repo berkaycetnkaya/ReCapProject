@@ -19,6 +19,7 @@ namespace Business.Constants
 
         public string Added(T entity)
         {
+            entity.
             throw new NotImplementedException();
         }
 

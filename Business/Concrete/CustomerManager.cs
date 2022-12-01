@@ -44,7 +44,7 @@ namespace Business.Concrete
 
         public IDataResult<List<CustomerDetailDto>> GetAllDetail()
         {
-            return new SuccessDataResult<List<CustomerDetailDto>>();
+            return new SuccessDataResult<List<CustomerDetailDto>>(_customerDal.GetCustomerDetail());
         }
 
         public IResult Update(Customer customer)
