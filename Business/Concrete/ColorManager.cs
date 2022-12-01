@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities;
 using System;
@@ -13,18 +15,38 @@ namespace Business.Concrete
 
     {
         IColorDal _colorDal;
-        public ColorManager(IColorDal colarDal )
+        IGenericMessages<Color> _genericMessages;
+        public ColorManager(IColorDal colarDal,IGenericMessages<Color> genericMessages )
         {
             _colorDal = colarDal;
-        }
-        public List<Color> GetAll()
-        {
-            return _colorDal.GetAll();
+            _genericMessages = genericMessages; 
         }
 
-        public Color GetByColorId(int id)
+        public IResult Add(Color color)
         {
-            return _colorDal.Get(p => p.Id == id);
+
+            _colorDal.Add(color);   
+            return new SuccessResult(_genericMessages.Added(color)); 
+        }
+
+        public IResult Delete(Color color)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Color>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<Color> GetByColorId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Update(Color color)
+        {
+            throw new NotImplementedException();
         }
     }
 }

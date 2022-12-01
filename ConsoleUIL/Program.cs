@@ -1,5 +1,7 @@
 ﻿using Business.Concrete;
+using Business.Constants;
 using DataAccess.Concrete.EntityFramework;
+using Entities;
 
 namespace ConsoleUIL
 {
@@ -10,23 +12,11 @@ namespace ConsoleUIL
 
             CarManager carManager = new CarManager(new EfCarDal());
             BrandManager brandManager = new BrandManager(new EfBrandDal());
+            ColorManager colorManager = new ColorManager(new EfColorDal(),new GenericMessages<Color>());
             // MarkalarıGetir(brandManager);
-
-            var result = carManager.GetAll();
-            if (result.Success)
-            {
-                foreach(var car in result.Data)
-                {
-                    Console.WriteLine(car.Description + "/" + car.ModelYear +"/"+result.Message);
-                    
-                }
-
-            }
-            else
-            {
-                Console.WriteLine(result.Message);  
-            }
-
+            Color color = new Color() { Id=5,Name="Bbeyaz"};
+            colorManager.Add(color);
+           
 
             //foreach (var car in carManager.GetAllDto())
             //{
@@ -40,10 +30,7 @@ namespace ConsoleUIL
 
         private static void MarkalarıGetir(BrandManager brandManager)
         {
-            foreach (var brand in brandManager.GetAll())
-            {
-                Console.WriteLine(brand.Name + brand.Id);
-            }
+            
         }
     }
 }
