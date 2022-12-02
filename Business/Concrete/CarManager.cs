@@ -3,6 +3,7 @@ using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Validation;
 using Core.CrossCuttingConcerns.Validation;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities;
@@ -19,9 +20,13 @@ namespace Business.Concrete
 
     {
         ICarDal _carDal;
-        public CarManager(ICarDal carDal)
+
+    // aşagiya kullanacağin nesnenin servisini cagirip işlem yaparsin
+        IBrandService _brandService;    
+        public CarManager(ICarDal carDal, IBrandService brandService)
         {
-            _carDal=carDal;
+            _carDal = carDal;
+            _brandService = brandService;   
         }
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
@@ -29,7 +34,14 @@ namespace Business.Concrete
             //bussiness code
             //validation
 
-            ValidationTool.Validate(new CarValidator(), car);
+            // aşağıya valıdation rulesları koyabılırsın
+            IResult result = BusinessRules.Run();
+            if(result != null)
+            {
+                return result;
+            }
+
+            
 
 
             _carDal.Add(car);   
