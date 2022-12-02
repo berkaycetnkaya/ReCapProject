@@ -1,5 +1,8 @@
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
 using Business.Abstract;
 using Business.Concrete;
+using Business.DependencyResolvers.Autofac;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 
@@ -14,12 +17,18 @@ builder.Services.AddSwaggerGen();
 // icinde data tutmuyorsaniz yapabilirsinzi sepetleri farkli yolla yaparsin herkesin sepeti ayni guzukur
 // javadaki being configurasyonu
 //bunu isterse bunu newle onu ver  kac tane istek gelirse ona ayni referansi veriyor
-builder.Services.AddSingleton<ICarService,CarManager>();
-builder.Services.AddSingleton<ICarDal, EfCarDal>();
+//********************
+//builder.Services.AddSingleton<ICarService,CarManager>();
+//builder.Services.AddSingleton<ICarDal, EfCarDal>();
+//************************
 // autofac, ninject,castlewindsor,structuremap, lightinject, dryinject ==> IoC container
 // sadece injection yapiyor olsaydik ama AOP yapacak, butun methodlari loglarsan yapamzsin
 // AOP sunuyor autofac 
-
+builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory());
+builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
+{
+    builder.RegisterModule(new AutoBusinessModule());
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
