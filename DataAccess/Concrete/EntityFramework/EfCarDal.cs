@@ -1,4 +1,5 @@
 ﻿using Core.DataAccess.EntityFramework;
+using Core.Entities;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Tables;
 using Entities;
@@ -34,11 +35,9 @@ namespace DataAccess.Concrete.EntityFramework
                                  ModelYear = p.ModelYear,
                                  DailyPrice = p.DailyPrice,
                                  Description = p.Description,
-
                              };
 
                 return result.ToList();
-
 
 
 
@@ -49,7 +48,7 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (TablesContext context = new TablesContext())
             {
-                var result = from p in context.Cars
+                var resultt = from p in context.Cars
                              join c in context.Brands
                              on p.BrandId equals c.Id
                              join k in context.Colors
@@ -66,10 +65,10 @@ namespace DataAccess.Concrete.EntityFramework
 
                              };
 
-                return result.ToList();
-                             
+                return filter == null ? resultt.ToList() : resultt.Where(filter).ToList();
 
-                             
+
+
 
             }
         }

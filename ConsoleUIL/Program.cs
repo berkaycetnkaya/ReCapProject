@@ -15,16 +15,22 @@ namespace ConsoleUIL
             BrandManager brandManager = new BrandManager(new EfBrandDal());
             ColorManager colorManager = new ColorManager(new EfColorDal());
             // MarkalarıGetir(brandManager);
-            Color color = new Color { Id= 5};
 
-            var result = carManager.GetByColorId(1);
 
-            Console.WriteLine(result.Data + "rengi"+ result.Message);
+            var result = carManager.GetByColorId(2);
+
+            foreach (var item in result.Data)
+            {
+                Console.WriteLine(item.ColorName);    
+            }    
+
+            
+           
             //foreach (var car in carManager.GetAllDto())
             //{
             //    Console.WriteLine(car.Id +" "+ car.ModelYear +" "+ car.DailyPrice +" "+ car.BrandName +" "+ car.ColorName + car.Description);
             //}
-            
+
 
 
 
