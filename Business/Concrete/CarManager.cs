@@ -41,12 +41,12 @@ namespace Business.Concrete
         public IDataResult<List<CarDetailDto>> GetAllDto()
         {
             
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(),CarMessages.CarDetailListed);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetAllCarDetails(),CarMessages.CarDetailListed);
         }
 
         public IDataResult<List<CarDetailDto>> GetByColorId(int colorid)
         {
-            return new SuccessDataResult<List<CarDetailDto>>(_carDal.Get(p => p.ColorId == colorid), CarMessages.CarListedByColorId);
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p=>p.ColorId==colorid), CarMessages.CarListedByColorId);
         }
 
         public IDataResult<Car> GetById(int id)
