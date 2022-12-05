@@ -20,13 +20,14 @@ namespace Business.Concrete
 
     {
         ICarDal _carDal;
+        IBrandService _brandService;
 
     // aşagiya kullanacağin nesnenin servisini cagirip işlem yaparsin
-        IBrandService _brandService;    
+          
         public CarManager(ICarDal carDal, IBrandService brandService)
         {
             _carDal = carDal;
-            _brandService = brandService;   
+            _brandService = brandService;
         }
         [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)

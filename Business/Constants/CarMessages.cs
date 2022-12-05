@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,5 +17,6 @@ namespace Business.Constants
         public static string CarDetailListed = "Araç detayları listelendi";
        public static string CarListedById="Aradığınız ürün listelendi";
         public static string CarListedByColorId = "Aradığınız renk listelendi";
+        public static string AuthorizationDenied="Yetkiniz yok";
     }
 }

@@ -1,10 +1,12 @@
-﻿using Entities;
+﻿using Core.Entities.Concrete;
+using Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using User = Entities.User;
 
 namespace DataAccess.Concrete.Tables
 {
@@ -24,6 +26,11 @@ namespace DataAccess.Concrete.Tables
         public DbSet<Rental>  Rentals { get; set; }
         
         public DbSet<Customer> Customers { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }  
+        
+        public DbSet<UserCore> UserDetail { get; set; }   
 
     }
 }

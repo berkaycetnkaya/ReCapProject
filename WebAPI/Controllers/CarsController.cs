@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
             // dependency chain--ICarService carService = new CarManager(new EfCarDal());
 
 
-            var result = _carService.GetAll();
+            var result = _carService.GetAllDto();
             if (result.Success)
             {
                 return Ok(result);
