@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Core.Utilities.Security.Encryption;
 using Microsoft.IdentityModel.Tokens;
+using Core.Utilities.IoC;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +38,7 @@ builder.Host.ConfigureContainer<ContainerBuilder>(builder =>
     builder.RegisterModule(new AutoBusinessModule());
 });
 
-
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
 var tokenOptions = builder.Configuration.GetSection("TokenOptions").Get<TokenOptions>();
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -54,6 +55,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             IssuerSigningKey = SecurityKeyHelper.CreateSecurityKey(tokenOptions.SecurityKey)
         };
     });
+//ServiceTool.Create(services);
+builder.Services.AddDependencyResolvers();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
