@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Core.Utilities.Security.Encryption;
 using Microsoft.IdentityModel.Tokens;
 using Core.Utilities.IoC;
+using Core.Extensions;
+using Core.DependencyResolver;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,7 +58,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 //ServiceTool.Create(services);
-builder.Services.AddDependencyResolvers();
+builder.Services.AddDependencyResolvers(new ICoreModule[] {new CoreModule()});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
