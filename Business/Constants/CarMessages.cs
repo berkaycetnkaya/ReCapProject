@@ -18,5 +18,6 @@ namespace Business.Constants
        public static string CarListedById="Aradığınız ürün listelendi";
         public static string CarListedByColorId = "Aradığınız renk listelendi";
         public static string AuthorizationDenied="Yetkiniz yok";
+        public static string CarListedByBrand="Araç Modele Göre Listelendi";
     }
 }
