@@ -1,4 +1,4 @@
-using Autofac;
+﻿using Autofac;
 using Autofac.Core;
 using Autofac.Extensions.DependencyInjection;
 using Business.Abstract;
@@ -60,14 +60,18 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //ServiceTool.Create(services);
 builder.Services.AddDependencyResolvers(new ICoreModule[] {new CoreModule()});
 var app = builder.Build();
-
+builder.Services.AddCors();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+// sira önemli
 
+app.UseCors(builder=>builder.WithOrigins("http://localhost:4200", "http://localhost:57497").AllowAnyHeader());
+// yukarda suradan bir istek gelir ise kabul et demek
+// her türlü istegi kabul et
 app.UseHttpsRedirection();
 app.UseRouting();   
 
