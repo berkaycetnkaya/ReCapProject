@@ -29,9 +29,9 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarDetailDto
                              {
                                  Id = p.Id,
-                                 BrandId = c.Id,    
+                                 BrandId = p.ColorId,    
                                  BrandName = c.Name,
-                                 ColorId = k.Id,
+                                 ColorId = p.ColorId,
                                  ColorName = k.Name,
                                  ModelYear = p.ModelYear,
                                  DailyPrice = p.DailyPrice,
@@ -57,9 +57,9 @@ namespace DataAccess.Concrete.EntityFramework
                              select new CarDetailDto
                              {
                                  Id = p.Id,
-                                 BrandId=c.Id,
+                                 BrandId=p.BrandId,
                                  BrandName = c.Name,
-                                 ColorId = k.Id,
+                                 ColorId = p.ColorId,
                                  ColorName = k.Name,
                                  ModelYear = p.ModelYear,
                                  DailyPrice = p.DailyPrice,
