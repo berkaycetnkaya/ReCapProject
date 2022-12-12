@@ -28,7 +28,8 @@ namespace DataAccess.Concrete.EntityFramework
                              on p.ColorId equals k.Id
                              select new CarDetailDto
                              {
-                                 Id = p.BrandId,
+                                 Id = p.Id,
+                                 BrandId = c.Id,    
                                  BrandName = c.Name,
                                  ColorId = k.Id,
                                  ColorName = k.Name,
@@ -55,7 +56,8 @@ namespace DataAccess.Concrete.EntityFramework
                              on p.ColorId equals k.Id
                              select new CarDetailDto
                              {
-                                 Id = p.BrandId,
+                                 Id = p.Id,
+                                 BrandId=c.Id,
                                  BrandName = c.Name,
                                  ColorId = k.Id,
                                  ColorName = k.Name,
