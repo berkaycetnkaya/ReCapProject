@@ -68,7 +68,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 // sira önemli
-
+app.ConfigureCustomExceptionMiddleware();
 app.UseCors(builder=>builder.WithOrigins("http://localhost:4200", "http://localhost:57497").AllowAnyHeader());
 // yukarda suradan bir istek gelir ise kabul et demek
 // her türlü istegi kabul et
