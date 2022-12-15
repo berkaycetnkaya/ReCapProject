@@ -33,8 +33,8 @@ namespace Business.Concrete
         }
         //[SecuredOperation("product.add,admin")]
 
-        [CacheRemoveAspect("ICarService.Get")]
-        [ValidationAspect(typeof(CarValidator))]
+        //[CacheRemoveAspect("ICarService.Get")]
+       // [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             //bussiness code
@@ -59,7 +59,7 @@ namespace Business.Concrete
             _carDal.Delete(car);
             return new SuccessResult( CarMessages.CarDeleted);
         }
-        [CacheAspect]
+       // [CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
             return new  SuccessDataResult<List<Car>>(_carDal.GetAll(),CarMessages.CarListed);
@@ -81,7 +81,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(p => p.ColorId == colorid), CarMessages.CarListedByColorId);
         }
         
-        [CacheAspect]
+      //  [CacheAspect]
         public IDataResult<Car> GetById(int id)
         {
             return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == id),CarMessages.CarListedById);

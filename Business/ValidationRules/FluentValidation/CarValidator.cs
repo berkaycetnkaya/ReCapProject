@@ -13,11 +13,11 @@ namespace Business.ValidationRules.FluentValidation
 
         public CarValidator()
         {
-            RuleFor(p => p.Description).MinimumLength(2);
-            RuleFor(p => p.Description).NotEmpty();
-            RuleFor(p => p.DailyPrice).NotEmpty();
-            RuleFor(p => p.DailyPrice).GreaterThan(100);
-            RuleFor(p => p.ModelYear).GreaterThanOrEqualTo(2022).When(p => p.BrandId == 5);
+            RuleFor(p => p.Description).MinimumLength(2).WithMessage("Açıklama en az 2 harf içermeli.");
+            RuleFor(p => p.Description).NotEmpty().WithMessage("Açıklama Boş olamaz."); 
+            RuleFor(p => p.DailyPrice).NotEmpty().WithMessage("Günlük ücret 100'den düşük olamaz."); 
+            RuleFor(p => p.DailyPrice).GreaterThan(100).WithMessage("Günlük ücret 100'den düşük olamaz."); 
+            RuleFor(p => p.ModelYear).GreaterThanOrEqualTo(2022).When(p => p.BrandId == 5).WithMessage("Mercedes 2022'den düşük olamaz.");
         }
         // withmessage ekleyebilirsin
     }
