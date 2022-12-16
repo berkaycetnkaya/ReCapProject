@@ -34,7 +34,7 @@ namespace Business.Concrete
         //[SecuredOperation("product.add,admin")]
 
         //[CacheRemoveAspect("ICarService.Get")]
-       // [ValidationAspect(typeof(CarValidator))]
+        [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             //bussiness code
