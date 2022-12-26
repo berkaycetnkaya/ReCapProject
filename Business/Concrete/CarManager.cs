@@ -34,7 +34,7 @@ namespace Business.Concrete
         //[SecuredOperation("product.add,admin")]
 
         //[CacheRemoveAspect("ICarService.Get")]
-        [ValidationAspect(typeof(CarValidator))]
+       // [ValidationAspect(typeof(CarValidator))]
         public IResult Add(Car car)
         {
             //bussiness code
@@ -86,7 +86,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Car>(_carDal.Get(p => p.Id == id),CarMessages.CarListedById);
         }
-        [CacheRemoveAspect("ICarService.Get")]
+       // [CacheRemoveAspect("ICarService.Get")]
         public IResult Update(Car car)
         {
             _carDal.Update(car);    
