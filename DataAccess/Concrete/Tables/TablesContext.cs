@@ -1,5 +1,6 @@
 ﻿using Core.Entities.Concrete;
 using Entities;
+using Entities.HomePage;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -32,5 +33,9 @@ namespace DataAccess.Concrete.Tables
         
         public DbSet<UserCore> UsersDetail { get; set; }   
 
+
+        public DbSet<Navbar> Navbars { get; set; }
+
+        public DbSet<SelectedNavbar> SelectedNavbars { get; set; }  
     }
 }
