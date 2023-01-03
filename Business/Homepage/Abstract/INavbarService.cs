@@ -19,4 +19,4 @@ namespace Business.Homepage.Abstract
         IResult Delete(Navbar nav);
     }
 }
-}
+

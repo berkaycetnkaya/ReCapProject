@@ -33,6 +33,8 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<EfNavbarDal>().As<INavbarDal>().SingleInstance();
             builder.RegisterType<NavbarManager>().As<INavbarService>().SingleInstance();
+            
+            
             builder.RegisterType<EfSelectedNavbarDal>().As<ISelectedNavbarDal>().SingleInstance();
             builder.RegisterType<SelectedNavbarManager>().As<ISelectedService>().SingleInstance();
 

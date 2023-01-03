@@ -1,4 +1,5 @@
 ﻿using Core.Utilities.Results;
+using Entities;
 using Entities.HomePage;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace Business.Homepage.Abstract
     {
 
         public IDataResult<List<SelectedNavbar>> GetAll();
+        IDataResult<SelectedNavbar> GetById(int id);
         IResult Add(SelectedNavbar nav);
 
         IResult Update(SelectedNavbar nav);

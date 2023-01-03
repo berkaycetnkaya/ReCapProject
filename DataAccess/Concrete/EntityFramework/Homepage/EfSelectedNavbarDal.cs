@@ -1,5 +1,6 @@
 ﻿using Core.DataAccess.EntityFramework;
 using DataAccess.Abstract;
+using DataAccess.Abstract.Homepage;
 using DataAccess.Concrete.Tables;
 using Entities;
 using Entities.HomePage;
