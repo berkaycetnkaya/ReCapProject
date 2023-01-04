@@ -31,7 +31,7 @@ namespace DataAccess.Concrete.Tables
 
         public DbSet<UserOperationClaim> UserOperationClaims { get; set; }  
         
-        public DbSet<UserCore> UsersDetail { get; set; }   
+        public DbSet<UserCore> UserDetail { get; set; }   
 
 
         public DbSet<Navbar> Navbars { get; set; }
