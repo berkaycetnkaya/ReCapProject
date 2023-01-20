@@ -34,6 +34,7 @@ namespace DataAccess.Postgre.Concrete
         public DbSet<City> Cities { get; set; }
         public DbSet<Lesson> Lessons { get; set; }
         public DbSet<School> Schools { get; set; }
+        public DbSet<SchoolLesson> SchoolLessons { get; set; }
 
 
 

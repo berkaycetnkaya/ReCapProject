@@ -23,8 +23,7 @@ namespace DataAccess.Postgre.Concrete.PostgreEntityFramework
                 var result = from p in context.Schools
                              join c in context.Cities
                              on p.cityId equals c.id
-                             join k in context.Lessons
-                             on p.lessonId equals k.id
+                            
                              select new SchoolDto
                              {
                                  Id = p.id,
@@ -34,8 +33,7 @@ namespace DataAccess.Postgre.Concrete.PostgreEntityFramework
 
                                  EndDate = p.endDate,
                                  CityId = p.id,
-                                 LessonId = p.lessonId,
-                                 LessonName = k.name,
+                                
                                  CityName = c.name
                              };
 
@@ -53,8 +51,7 @@ namespace DataAccess.Postgre.Concrete.PostgreEntityFramework
                 var resultt = from p in context.Schools
                               join c in context.Cities
                               on p.cityId equals c.id
-                              join k in context.Lessons
-                              on p.lessonId equals k.id
+                              
                               select new SchoolDto
                               {
                                   Id = p.id,
@@ -64,8 +61,7 @@ namespace DataAccess.Postgre.Concrete.PostgreEntityFramework
 
                                   EndDate = p.endDate,
                                   CityId = p.id,
-                                  LessonId = p.lessonId,
-                                  LessonName = k.name,
+                                 
                                   CityName = c.name
 
                               };

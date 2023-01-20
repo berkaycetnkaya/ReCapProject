@@ -51,8 +51,11 @@ namespace Business.DependencyResolvers.Autofac
             
             builder.RegisterType<EfCityDal>().As<ICityDal>().SingleInstance();
             builder.RegisterType<CityManager>().As<ICityService>().SingleInstance();
-            
-            
+
+            builder.RegisterType<EfSchoolLessonDal>().As<ISchoolLessonDal>().SingleInstance();
+            builder.RegisterType<SchoolLessonManager>().As<ISchoolLessonService>().SingleInstance();
+
+
 
 
 

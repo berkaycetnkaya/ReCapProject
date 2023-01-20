@@ -18,8 +18,7 @@ namespace Entities.PostgreSql.PostgreDtos
         public TimeSpan EndDate { get; set; }
 
         public int CityId { get; set; }
-        public int LessonId { get; set; }
-        public string LessonName { get; set; }
+        
         public string CityName { get; set; }
     }
 }
