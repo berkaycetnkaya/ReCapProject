@@ -12,6 +12,15 @@ namespace Entities.PostgreSql.PostgreDtos
         public int id { get; set; }
 
         public int schoolId { get; set; }
+        public string schoolName { get; set; }
+
+       
+
+        public DateTime BuildDate { get; set; }
+
+        public TimeSpan StartDate { get; set; }
+
+        public TimeSpan EndDate { get; set; }
 
         public int lessonId { get; set; }
 

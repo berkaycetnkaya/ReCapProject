@@ -14,5 +14,6 @@ namespace DataAccess.Postgre.Abstract
     public interface ISchoolLessonDal : IEntityRepository<SchoolLesson>
     {
         List<SchoolLessonDto> GetSchoolDetails(Expression<Func<SchoolLessonDto, bool>> filter);
+        List<SchoolLessonDto> GetAllSchoolDto(Expression<Func<SchoolLessonDto, bool>> filter = null);
     }
 }

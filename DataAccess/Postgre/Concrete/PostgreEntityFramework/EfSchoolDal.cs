@@ -30,7 +30,7 @@ namespace DataAccess.Postgre.Concrete.PostgreEntityFramework
                                  Name = p.name,
                                  BuildDate = p.buildDate,
                                  StartDate = p.startDate,
-
+                                 
                                  EndDate = p.endDate,
                                  CityId = p.id,
                                 

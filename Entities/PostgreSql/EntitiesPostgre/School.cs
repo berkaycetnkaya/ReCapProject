@@ -18,7 +18,7 @@ namespace Entities.PostgreSql.EntitiesPostgre
 
         public TimeSpan endDate { get; set;}
 
-        public int cityId { get; set; }
+        public int cityId { get; set; } 
         
     }
 }

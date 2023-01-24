@@ -17,28 +17,59 @@ namespace DataAccess.Postgre.Concrete.PostgreEntityFramework
     {
         public List<SchoolLessonDto> GetSchoolDetails(Expression<Func<SchoolLessonDto, bool>> filter)
         {
-            using (TablesContext context = new TablesContext())
+            using (PostgreDbContext context = new PostgreDbContext())
             {
-                var resultt = from p in context.Cars
-                              join c in context.Brands
-                              on p.BrandId equals c.Id
-                              join k in context.Colors
-                              on p.ColorId equals k.Id
-                              select new CarDetailDto
+                var resultt = from p in context.SchoolLessons
+                              join c in context.Schools
+                              on p.schoolId equals c.id
+                              join k in context.Lessons
+                              on p.lessonId equals k.id
+                              select new SchoolLessonDto
                               {
-                                  Id = p.Id,
-                                  BrandId = p.BrandId,
-                                  BrandName = c.Name,
-                                  ColorId = p.ColorId,
-                                  ColorName = k.Name,
-                                  ModelYear = p.ModelYear,
-                                  DailyPrice = p.DailyPrice,
-                                  Description = p.Description,
+                                  id =p.id,
 
-                              };
+         schoolId =c.id,
+       schoolName=c.name,
+         lessonId=k.id,
+                                  BuildDate=c.buildDate,
+                                  StartDate=c.startDate,
+                                  EndDate=c.endDate,    
+       LessonName =k.name,
+
+    };
 
                 return filter == null ? resultt.ToList() : resultt.Where(filter).ToList();
 
+
+
+
+            }
+        }
+
+        public List<SchoolLessonDto> GetAllSchoolDto(Expression<Func<SchoolLessonDto, bool>> filter = null)
+        {
+            using (PostgreDbContext context = new PostgreDbContext())
+            {
+                var result = from p in context.SchoolLessons
+                             join c in context.Schools
+                             on p.schoolId equals c.id
+                             join k in context.Lessons
+                             on p.lessonId equals k.id
+
+                             select new SchoolLessonDto
+                             {
+                                 id = p.id,
+
+                                 schoolId = c.id,
+                                 schoolName = c.name,
+                                 lessonId = k.id,
+                                 BuildDate = c.buildDate,
+                                 StartDate = c.startDate,
+                                 EndDate = c.endDate,
+                                 LessonName = k.name,
+                             };
+
+                return result.ToList();
 
 
 

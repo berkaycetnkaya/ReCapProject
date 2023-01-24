@@ -11,7 +11,8 @@ namespace Business.Postgre.Abstract
 {
     public interface ISchoolLessonService
     {
-        public IDataResult<List<SchoolLesson>> GetByID(int id);
+        public IDataResult<List<SchoolLessonDto>> GetByID(int id);
+        public IDataResult<List<SchoolLessonDto>> GetAllDto();
 
         IResult Add(SchoolLesson school);
 

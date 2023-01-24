@@ -4,6 +4,7 @@ using Business.Postgre.ConstantMessage.School;
 using Core.Utilities.Results;
 using DataAccess.Postgre.Abstract;
 using Entities.PostgreSql.EntitiesPostgre;
+using Entities.PostgreSql.PostgreDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,9 +34,14 @@ namespace Business.Postgre.Concrete
             return new SuccessResult(SchoolMessages.SchoolDeleted);
         }
 
-        public IDataResult<List<SchoolLesson>> GetByID(int id)
+        public IDataResult<List<SchoolLessonDto>> GetAllDto()
         {
-            return new SuccessDataResult<List<SchoolLesson>>(_lessonDal.GetAll(p=>p.schoolId==id),LessonMessages.LessonListedById);
+           return new SuccessDataResult<List<SchoolLessonDto>>(_lessonDal.GetAllSchoolDto(),LessonMessages.LessonListed);   
+        }
+
+        public IDataResult<List<SchoolLessonDto>> GetByID(int id)
+        {
+            return new SuccessDataResult<List<SchoolLessonDto>>(_lessonDal.GetSchoolDetails(p=>p.schoolId==id),LessonMessages.LessonListedById);
         }
 
         public IResult Update(SchoolLesson school)

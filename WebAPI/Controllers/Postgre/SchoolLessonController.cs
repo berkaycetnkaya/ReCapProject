@@ -15,6 +15,22 @@ namespace WebAPI.Controllers.Postgre
         {
             _schoolLessonService = schoolLessonService; 
         }
+
+
+
+        [HttpGet("getall")]
+        public IActionResult GetAll()
+        {
+            // dependency chain--ICarService carService = new CarManager(new EfCarDal());
+
+
+            var result = _schoolLessonService.GetAllDto();  
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
         [HttpGet("getbyid")]
         public IActionResult GetbyId(int id)
         {
