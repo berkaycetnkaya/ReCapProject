@@ -65,10 +65,22 @@ namespace WebAPI.Controllers.Postgre
             return BadRequest(result);
         }
 
+        [HttpGet("getDtobyid")]
+        public IActionResult GetDtobyId(int id)
+        {
+            var result = _schoolService.GetDtoByID(id);
+
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
         [HttpGet("getbyid")]
         public IActionResult GetbyId(int id)
         {
-            var result = _schoolService.GetByID(id);
+            var result = _schoolService.GetById(id);
 
             if (result.Success)
             {

@@ -4,6 +4,7 @@ using DataAccess.Postgre.Abstract;
 using Entities.DTOs;
 using Entities.PostgreSql.EntitiesPostgre;
 using Entities.PostgreSql.PostgreDtos;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,7 +75,34 @@ namespace DataAccess.Postgre.Concrete.PostgreEntityFramework
 
 
             }
+
+
         }
+
+        //public List<string> Nee()
+        //{
+        //    using (var context = new PostgreDbContext())
+        //    {
+        //        // Okulları getir
+        //        var schools = context.Schools.ToList();
+
+        //        // Her okul için, eşleşen dersleri getir
+        //        foreach (var school in schools)
+        //        {
+        //            var schoolLessons = context.SchoolLessons
+        //                                .Where(x => x.schoolId == school.id)
+        //                                .Select(x => x.lessonId)
+        //                                .ToList();
+        //            var lessons = context.Lessons
+        //                            .Where(x => schoolLessons.Contains(x.id))
+        //                            .Select(x => x.name)
+        //                            .ToList();
+        //            // lesson.name'leri göster
+        //            Console.WriteLine(string.Join(", ", lessons));
+        //            return lessons;
+        //        }
+        //    }
+        //}
     }
 }
 

@@ -16,37 +16,41 @@ namespace Business.Postgre.Concrete
     public class SchoolLessonManager : ISchoolLessonService
     {
 
-        ISchoolLessonDal _lessonDal;
-        public SchoolLessonManager(ISchoolLessonDal lessonDal)
+        ISchoolLessonDal _schoolLessonDal;
+        ILessonService _lesson;
+
+        public SchoolLessonManager(ISchoolLessonDal lessonDal, ILessonService lesson)
         {
-            _lessonDal = lessonDal;
+            _schoolLessonDal = lessonDal;
+            _lesson = lesson;   
         }
 
         public IResult Add(SchoolLesson school)
         {
-           _lessonDal.Add(school);
+            _schoolLessonDal.Add(school);
            return new SuccessResult(SchoolMessages.SchoolAdded);
         }
 
         public IResult Delete(SchoolLesson school)
         {
-            _lessonDal.Delete(school);  
+            _schoolLessonDal.Delete(school);  
             return new SuccessResult(SchoolMessages.SchoolDeleted);
         }
 
         public IDataResult<List<SchoolLessonDto>> GetAllDto()
         {
-           return new SuccessDataResult<List<SchoolLessonDto>>(_lessonDal.GetAllSchoolDto(),LessonMessages.LessonListed);   
+           return new SuccessDataResult<List<SchoolLessonDto>>(_schoolLessonDal.GetAllSchoolDto(),LessonMessages.LessonListed);   
         }
 
         public IDataResult<List<SchoolLessonDto>> GetByID(int id)
         {
-            return new SuccessDataResult<List<SchoolLessonDto>>(_lessonDal.GetSchoolDetails(p=>p.schoolId==id),LessonMessages.LessonListedById);
+            
+            return new SuccessDataResult<List<SchoolLessonDto>>(_schoolLessonDal.GetSchoolDetails(p=>p.schoolId==id),LessonMessages.LessonListedById);
         }
 
         public IResult Update(SchoolLesson school)
         {
-           _lessonDal.Update(school);   
+            _schoolLessonDal.Update(school);   
             return new SuccessResult(SchoolMessages.SchoolUpdated); 
         }
     }

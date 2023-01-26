@@ -39,7 +39,7 @@ namespace Business.Postgre.Concrete
            return new SuccessDataResult<List<SchoolDto>>(_schoolDal.GetAllSchoolDto(),SchoolMessages.SchoolListed);    
         }
 
-        public IDataResult<List<SchoolDto>> GetByID(int id)
+        public IDataResult<List<SchoolDto>> GetDtoByID(int id)
         {
             return new SuccessDataResult<List<SchoolDto>>(_schoolDal.GetByIdSchoolDto(p=>p.Id==id),SchoolMessages.SchoolListedById);  
         }
@@ -51,6 +51,11 @@ namespace Business.Postgre.Concrete
             return new SuccessResult(SchoolMessages.SchoolUpdated);
         }
 
-       
+       public IDataResult<School> GetById(int id)
+        {
+            return new SuccessDataResult<School>(_schoolDal.Get(p=>p.id==id),SchoolMessages.SchoolListedById);
+        }
+
+
     }
 }

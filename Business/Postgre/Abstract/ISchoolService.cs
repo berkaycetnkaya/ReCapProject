@@ -12,12 +12,14 @@ namespace Business.Postgre.Abstract
 {
     public  interface ISchoolService
     {
-        public IDataResult<List<SchoolDto>> GetByID(int id);
+        public IDataResult<List<SchoolDto>> GetDtoByID(int id);
         public IDataResult<List<SchoolDto>> GetAllDto();
         IResult Add(School school);
 
         IResult Update(School school);
 
         IResult Delete(School school);
+
+        public IDataResult<School> GetById(int id);
     }
 }
